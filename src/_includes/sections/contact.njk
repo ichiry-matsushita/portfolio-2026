@@ -5,8 +5,13 @@
       <h2 class="contact__title" id="contact-heading">{{ contact.heading }}</h2>
       <p class="contact__lead">{{ contact.lead }}</p>
       <div class="button-group">
+        {# 複業クラウドのURLが空のときはボタンを出さず、メールを白地の主なボタンにする #}
+        {% if contact.fukugyoUrl %}
         <a class="button button--white" href="{{ contact.fukugyoUrl }}">複業クラウドで相談する</a>
         <a class="button button--outline-white" href="mailto:{{ contact.email }}">{{ contact.email }}</a>
+        {% else %}
+        <a class="button button--white" href="mailto:{{ contact.email }}">{{ contact.email }}</a>
+        {% endif %}
       </div>
     </div>
   </div>

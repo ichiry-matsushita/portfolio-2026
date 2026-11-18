@@ -47,7 +47,7 @@ Windows では、Eleventy の開発サーバーが新しく追加したファイ
 | `samples.json` | サンプル制作物と「このサイトについて」 |
 | `skills.json` | スキル |
 | `workStyle.json` | 働き方・ご依頼条件 |
-| `contact.json` | お問い合わせ（複業クラウドのURL、メールアドレス） |
+| `contact.json` | お問い合わせ（メールアドレス。`fukugyoUrl` に複業クラウドのURLを入れると「複業クラウドで相談する」ボタンが出る） |
 
 `[YOUR NAME]` や `[○]` など、角かっこの部分は後で差し替える箇所です。
 
