@@ -19,8 +19,9 @@
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  {# フォントは後から読み込むと文字の幅が変わってレイアウトがずれるため、先に読み込む #}
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+  {# フォントは後から読み込むと文字の幅が変わってレイアウトがずれるため、先に読み込む。
+     __FONT_TEXT__ はビルド時にページで使っている文字に置き換わる（eleventy.config.js の fontSubset） #}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap&text=__FONT_TEXT__">
   <style>{% inlineCss %}</style>
 </head>
 <body>

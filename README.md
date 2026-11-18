@@ -18,6 +18,7 @@ Web制作・業務改善の業務委託案件に応募するための、1ペー�
 | 静的サイトジェネレーター | Eleventy 3 |
 | テンプレート | Nunjucks |
 | スタイル | SCSS（ビルド時に `sass` で変換し、`<style>` としてHTMLに埋め込む） |
+| フォント | Google Fonts（Noto Sans JP / Inter）。ビルド時にページで使っている文字だけを `text=` で指定し、読み込みを軽くしている |
 | JavaScript | なし（ページ内のスムーズスクロールは CSS の `scroll-behavior`） |
 | 公開 | GitHub Pages（GitHub Actions で自動デプロイ） |
 
