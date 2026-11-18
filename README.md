@@ -17,7 +17,7 @@ Web制作・業務改善の業務委託案件に応募するための、1ペー�
 |---|---|
 | 静的サイトジェネレーター | Eleventy 3 |
 | テンプレート | Nunjucks |
-| スタイル | SCSS（`sass` でビルド） |
+| スタイル | SCSS（ビルド時に `sass` で変換し、`<style>` としてHTMLに埋め込む） |
 | JavaScript | なし（ページ内のスムーズスクロールは CSS の `scroll-behavior`） |
 | 公開 | GitHub Pages（GitHub Actions で自動デプロイ） |
 
@@ -27,7 +27,7 @@ Node.js 24 で動作を確認しています。
 
 ```bash
 npm install
-npm start        # 開発サーバー http://localhost:8090/
+npm start        # 開発サーバー http://localhost:8090/（SCSS の変更も自動で反映）
 npm run build    # 公開用のファイルを _site/ に書き出す
 npm run images   # images-src/ の画像を公開用に変換（メタデータは削除）
 ```
