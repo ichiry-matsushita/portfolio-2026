@@ -19,7 +19,7 @@
           <ul class="tag-list" aria-label="使用技術">
             {% for t in sample.tech %}<li class="tag">{{ t }}</li>{% endfor %}
           </ul>
-          <p class="sample__hours">制作時間 {{ sample.hours }}時間</p>
+          {% if sample.hours %}<p class="sample__hours">制作時間 {{ sample.hours }}時間</p>{% endif %}
         </div>
       </article>
       {% endfor %}

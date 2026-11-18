@@ -14,8 +14,8 @@
     {
       "title": "coming soon",
       "tech": ["HTML", "SCSS", "JavaScript"],
-      "hours": "[○]",
-      "href": "[LPのURL]",
+      "hours": "",
+      "href": "",
       "image": "",
       "alt": ""
     }
