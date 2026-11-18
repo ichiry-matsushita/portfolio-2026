@@ -1,0 +1,56 @@
+<section class="section" id="cases" aria-labelledby="cases-heading">
+  <div class="container">
+    {% set sh = { label: cases.label, heading: cases.heading, id: "cases-heading", lead: cases.lead } %}
+    {% include "sections/section-heading.njk" %}
+
+    <div class="case-list">
+      {% for case in cases.items %}
+      <article class="card case" aria-labelledby="{{ case.id | lower }}-title">
+        <div class="case__head">
+          <span class="ticket-id">{{ case.id }}</span>
+          <span class="case__meta">{{ case.meta }}</span>
+        </div>
+        <h3 class="case__title" id="{{ case.id | lower }}-title">{{ case.title }}</h3>
+
+        {% if case.metrics %}
+        <div class="metrics">
+          <dl class="metrics__pair">
+            <div class="metrics__item">
+              <dt>{{ case.metrics.before.label }}</dt>
+              <dd><span class="metrics__value">{{ case.metrics.before.value }}</span>{{ case.metrics.before.unit }}</dd>
+            </div>
+            <div class="metrics__item metrics__item--after">
+              <dt>{{ case.metrics.after.label }}</dt>
+              <dd><span class="metrics__value">{{ case.metrics.after.value }}</span>{{ case.metrics.after.unit }}</dd>
+            </div>
+          </dl>
+          <p class="metrics__result">{{ case.metrics.result.label }} <strong>{{ case.metrics.result.value }}</strong></p>
+        </div>
+        {% endif %}
+
+        <div class="case__blocks">
+          {% for block in case.blocks %}
+          <div class="box case-block">
+            <h4 class="case-block__label">{{ block.label }}</h4>
+            {% for text in block.items %}<p>{{ text }}</p>{% endfor %}
+          </div>
+          {% endfor %}
+        </div>
+
+        {% if case.tags.length %}
+        <ul class="tag-list" aria-label="使った技術・役割">
+          {% for tag in case.tags %}<li class="tag">{{ tag }}</li>{% endfor %}
+        </ul>
+        {% endif %}
+
+        {% if case.link %}
+        <p class="case__link">
+          <a class="text-link" href="{{ case.link.href }}">{{ case.link.label }}</a>
+          <span class="case__link-note">{{ case.link.note }}</span>
+        </p>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

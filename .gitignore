@@ -1,0 +1,6 @@
+node_modules/
+_site/
+.cache/
+
+# Claude Code の個人設定
+.claude/settings.local.json

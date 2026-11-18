@@ -1,0 +1,72 @@
+@use "tokens" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: 16px;
+  @include md { scroll-padding-top: 88px; } // 固定ヘッダーの下に見出しが隠れないように
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+body {
+  margin: 0;
+  background: $color-bg;
+  color: $color-text;
+  font-family: $font-body;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: $line-height-body;
+  overflow-wrap: anywhere;
+}
+
+h1, h2, h3, h4, p, ul, ol, dl, dd, figure {
+  margin: 0;
+}
+
+ul, ol {
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: $color-accent;
+  &:hover { color: $color-accent-hover; }
+}
+
+:focus-visible {
+  outline: 3px solid $color-accent;
+  outline-offset: 2px;
+}
+
+.container {
+  width: 100%;
+  max-width: $content-max + $gutter * 2;
+  margin-inline: auto;
+  padding-inline: $gutter;
+}
+
+.skip-link {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 100;
+  padding: 8px 16px;
+  background: $color-surface;
+  border-radius: $radius-button;
+  transform: translateY(-200%);
+  &:focus { transform: none; }
+}

@@ -1,0 +1,14 @@
+{
+  "label": "WEB ENGINEER / OPERATIONS IMPROVEMENT",
+  "headingLines": ["AI活用で、制作と運用を", "効率化するWebエンジニア"],
+  "lead": "Web制作・EC運用の現場で約6年。コーディングをしながら、チームの進め方や運用ルールを整え、AIで定型作業を減らしてきました。「作業をこなす」だけでなく、仕事の仕組みそのものを良くするのが得意です。",
+  "stats": [
+    { "label": "Web制作・EC運用", "value": "約6年" },
+    { "label": "プロジェクトリーダー", "value": "4名チームを統括" },
+    { "label": "顧客満足度アンケート", "value": "社内1位" }
+  ],
+  "buttons": [
+    { "label": "お仕事の相談をする", "href": "#contact", "style": "primary" },
+    { "label": "事例を見る", "href": "#cases", "style": "secondary" }
+  ]
+}

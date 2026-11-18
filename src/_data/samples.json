@@ -1,0 +1,27 @@
+{
+  "label": "SAMPLES",
+  "heading": "サンプル制作物",
+  "lead": "過去の案件は公開できないため、実装力を見ていただくためのサンプルを用意しています。",
+  "items": [
+    {
+      "title": "おうちイタリアン手帖（レシピコラムサイト）",
+      "tech": ["Eleventy", "SCSS", "AIでの記事自動作成"],
+      "hours": "約1",
+      "href": "https://ichiry-matsushita.github.io/ouchi-italian-techo/how-it-works/",
+      "image": "/assets/img/sample-ouchi-italian.webp",
+      "alt": "おうちイタリアン手帖のトップページ"
+    },
+    {
+      "title": "[サンプルLPのタイトル]",
+      "tech": ["HTML", "SCSS", "JavaScript"],
+      "hours": "[○]",
+      "href": "[LPのURL]",
+      "image": "",
+      "alt": "[サンプルLPのタイトル]のトップページ"
+    }
+  ],
+  "about": {
+    "heading": "このサイトについて",
+    "body": "このポートフォリオ自体も、Claude Codeを使ったAIコーディングで制作しました。設計から公開まで約[○]時間です。"
+  }
+}

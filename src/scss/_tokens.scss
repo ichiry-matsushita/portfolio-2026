@@ -1,0 +1,36 @@
+// デザイントークン（色・文字・角丸・余白）。値を変えるときはここだけ直す。
+
+// 色
+$color-bg: #F5F6F8;          // ページ背景
+$color-surface: #FFFFFF;     // カード・ヘッダー背景
+$color-text: #16191F;        // 本文の文字
+$color-text-sub: #4B5563;    // 補足の文字
+$color-text-muted: #5B6472;  // 薄い補足の文字
+$color-border: #E3E6EB;      // 線
+$color-accent: #1F5FD1;      // アクセント
+$color-accent-hover: #174AA6;
+$color-accent-soft: #EAF0FC; // アクセントの薄い背景
+$color-dark: #16191F;        // お問い合わせ欄の背景
+
+// 文字
+$font-body: "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+$font-label: "Inter", $font-body; // 数字と英字のラベル
+$line-height-body: 1.8;
+
+// 角丸
+$radius-card: 12px;
+$radius-box: 10px;
+$radius-button: 8px;
+
+// レイアウト
+$content-max: 1120px;
+$gutter: 24px;
+$section-space: 96px;        // PC のセクション上下の余白
+$section-space-sp: 64px;     // スマホのセクション上下の余白
+$button-height: 48px;
+
+// ブレークポイント
+$bp-md: 768px;
+@mixin md {
+  @media (min-width: $bp-md) { @content; }
+}

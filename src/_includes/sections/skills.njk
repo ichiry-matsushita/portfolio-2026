@@ -1,0 +1,18 @@
+<section class="section" id="skills" aria-labelledby="skills-heading">
+  <div class="container">
+    {% set sh = { label: skills.label, heading: skills.heading, id: "skills-heading" } %}
+    {% include "sections/section-heading.njk" %}
+
+    <div class="grid grid--4">
+      {% for skill in skills.items %}
+      <article class="card skill">
+        <h3 class="skill__title">{{ skill.title }}</h3>
+        <ul class="skill__list">
+          {% for item in skill.items %}<li>{{ item }}</li>{% endfor %}
+        </ul>
+      </article>
+      {% endfor %}
+    </div>
+    <p class="skill__next">{{ skills.next }}</p>
+  </div>
+</section>

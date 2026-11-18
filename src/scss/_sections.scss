@@ -1,0 +1,462 @@
+@use "tokens" as *;
+
+// ---------- ① ヘッダー ----------
+.site-header {
+  // スマホではメニューが2段になり高さを取るので、固定するのはタブレット以上だけ
+  @include md {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  background: $color-surface;
+  border-bottom: 1px solid $color-border;
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap; // スマホではメニューが下に折り返す
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px 24px;
+    padding-block: 12px;
+    @include md { min-height: 72px; }
+  }
+
+  &__name {
+    color: $color-text;
+    font-family: $font-label;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    &:hover { color: $color-text; }
+  }
+}
+
+.site-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 4px;
+  margin-inline: -10px; // リンクの余白のぶん、端をそろえる
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding-inline: 10px;
+    color: $color-text-sub;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    &:hover { color: $color-accent; }
+  }
+}
+
+// ---------- ② ファーストビュー ----------
+.hero {
+  padding-block: 56px $section-space-sp;
+  background: $color-surface;
+  border-bottom: 1px solid $color-border;
+  @include md { padding-block: 96px; }
+
+  &__heading {
+    margin-top: 16px;
+    font-size: clamp(24px, 6.4vw, 48px); // 375px幅で2行目が折り返さない大きさ
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+  }
+
+  &__line {
+    display: block; // 「AI活用で、制作と運用を／効率化するWebエンジニア」の2行で見せる
+  }
+
+  &__lead {
+    max-width: 720px;
+    margin-top: 24px;
+    color: $color-text-sub;
+    @include md { font-size: 17px; }
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    max-width: 880px;
+    margin-block: 40px;
+  }
+
+  .button-group .button {
+    @media (max-width: 479px) { flex: 1 1 100%; }
+  }
+}
+
+.stat {
+  display: flex;
+  flex-direction: column-reverse; // 見た目は「数字 → ラベル」、読み上げは「ラベル → 数字」
+  padding: 12px 16px;
+  @include md { padding: 16px 20px; }
+  border: 1px solid $color-border;
+  border-radius: $radius-box;
+
+  &__label {
+    color: $color-text-muted;
+    font-size: 13px;
+  }
+
+  &__value {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.5;
+    @include md { font-size: 20px; }
+  }
+}
+
+// ---------- ③ 事例 ----------
+.case-list {
+  display: grid;
+  gap: 24px;
+}
+
+.case {
+  &__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+  }
+
+  &__meta {
+    color: $color-text-muted;
+    font-size: 13px;
+  }
+
+  &__title {
+    margin-top: 12px;
+    font-size: clamp(19px, 2.6vw, 22px);
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  &__blocks {
+    display: grid;
+    // タブレットでも3列のまま（2列＋1つ余りにならない）、スマホで1列
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .tag-list {
+    margin-top: 20px;
+  }
+
+  &__link {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 12px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid $color-border;
+  }
+
+  &__link-note {
+    color: $color-text-muted;
+    font-size: 13px;
+  }
+}
+
+.case-block {
+  &__label {
+    margin-bottom: 4px;
+    color: $color-text-sub;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  p + p { margin-top: 4px; }
+}
+
+// ビフォー・アフターの数字
+.metrics {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 40px;
+  margin-top: 24px;
+  padding: 16px;
+  @include md { padding: 20px 24px; }
+  background: $color-bg;
+  border-radius: $radius-box;
+
+  &__pair {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 64px; // 横の間に矢印が入る
+  }
+
+  &__item {
+    dt {
+      color: $color-text-muted;
+      font-size: 13px;
+    }
+    dd {
+      color: $color-text-sub;
+      font-size: 14px;
+    }
+  }
+
+  &__value {
+    margin-right: 2px;
+    color: $color-text;
+    font-family: $font-label;
+    font-size: clamp(30px, 4vw, 40px);
+    font-weight: 700;
+    line-height: 1.2;
+    // 「時間」は Noto Sans JP で表示される（Inter に和文がないため）
+  }
+
+  &__item--after &__value {
+    color: $color-accent;
+  }
+
+  // 「これまで → 自動化後」の矢印。<dl> の中に余計な要素を置けないので、疑似要素で描く
+  &__item--after {
+    position: relative;
+
+    &::before {
+      content: "→" / "";
+      position: absolute;
+      top: 50%;
+      left: -44px;
+      color: $color-text-muted;
+      font-family: $font-label;
+      font-size: 24px;
+      line-height: 1;
+      transform: translateY(-50%);
+    }
+  }
+
+  // スマホでは縦に並べ、矢印を下向きにする
+  @media (max-width: $bp-md - 1px) {
+    &__pair {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 32px;
+    }
+    &__item--after::before {
+      top: -30px;
+      left: 12px;
+      transform: rotate(90deg);
+    }
+  }
+
+  &__result {
+    padding: 8px 16px;
+    background: $color-surface;
+    border: 1px solid $color-border;
+    border-radius: $radius-button;
+    color: $color-text-sub;
+    font-size: 14px;
+
+    strong {
+      margin-left: 4px;
+      color: $color-accent;
+      font-size: 18px;
+    }
+  }
+}
+
+// ---------- ④ サンプル ----------
+.sample {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+
+  &__image {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 16 / 10;
+    background: $color-bg;
+    border-bottom: 1px solid $color-border;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+
+  &__placeholder {
+    color: $color-text-muted;
+    font-size: 14px;
+  }
+
+  &__body {
+    display: grid;
+    gap: 12px;
+    padding: 24px;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.5;
+
+    a {
+      color: $color-text;
+      text-underline-offset: 3px;
+      &:hover { color: $color-accent; }
+    }
+  }
+
+  &__hours {
+    color: $color-text-muted;
+    font-size: 14px;
+  }
+}
+
+// 点線の枠
+.note-box {
+  margin-top: 24px;
+  padding: 20px 24px;
+  border: 1px dashed #B8BEC8;
+  border-radius: $radius-box;
+  color: $color-text-sub;
+
+  &__title {
+    margin-bottom: 4px;
+    color: $color-text;
+    font-size: 15px;
+    font-weight: 700;
+  }
+}
+
+// ---------- ⑤ スキル ----------
+.grid--4 {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.skill {
+  // 4列で並ぶので、カードの内側の余白を少し狭くする
+  &.card { padding: 24px; }
+
+  &__title {
+    padding-bottom: 12px;
+    border-bottom: 1px solid $color-border;
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  &__list {
+    display: grid;
+    gap: 8px;
+    margin-top: 16px;
+    color: $color-text-sub;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  &__next {
+    margin-top: 20px;
+    color: $color-text-muted;
+    font-size: 14px;
+  }
+}
+
+// ---------- ⑥ 働き方 ----------
+.grid--2 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.plan {
+  &__head {
+    padding-bottom: 16px;
+    border-bottom: 1px solid $color-border;
+  }
+
+  &__title {
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  &__rate {
+    margin-top: 4px;
+    font-size: clamp(24px, 3.4vw, 28px);
+    font-weight: 700;
+    line-height: 1.4;
+  }
+}
+
+.check-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+  color: $color-text-sub;
+
+  li {
+    position: relative;
+    padding-left: 24px;
+
+    // チェックマーク（線で描く）
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0.55em;
+      left: 2px;
+      width: 12px;
+      height: 7px;
+      border-left: 2px solid $color-accent;
+      border-bottom: 2px solid $color-accent;
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+// ---------- ⑦ お問い合わせ ----------
+.contact {
+  padding: 40px 24px;
+  background: $color-dark;
+  border-radius: $radius-card;
+  color: #FFFFFF;
+  @include md { padding: 64px; }
+
+  &__title {
+    margin-top: 8px;
+    font-size: clamp(24px, 4vw, 32px);
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  &__lead {
+    max-width: 640px;
+    margin-block: 16px 32px;
+    color: #D1D5DB;
+  }
+
+  .button {
+    @media (max-width: 479px) { flex: 1 1 100%; }
+  }
+}
+
+// ---------- ⑧ フッター ----------
+.site-footer {
+  padding-block: 32px;
+  border-top: 1px solid $color-border;
+  color: $color-text-muted;
+  font-family: $font-label;
+  font-size: 13px;
+  text-align: center;
+}
+
+// 同じ背景のセクションが続くときは、上の余白を詰めて間を 64〜96px にする
+.section + .section {
+  padding-top: 0;
+}

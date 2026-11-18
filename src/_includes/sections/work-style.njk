@@ -1,0 +1,20 @@
+<section class="section" id="work-style" aria-labelledby="work-style-heading">
+  <div class="container">
+    {% set sh = { label: workStyle.label, heading: workStyle.heading, id: "work-style-heading" } %}
+    {% include "sections/section-heading.njk" %}
+
+    <div class="grid grid--2">
+      {% for plan in workStyle.items %}
+      <article class="card plan">
+        <div class="plan__head">
+          <h3 class="plan__title">{{ plan.title }}</h3>
+          <p class="plan__rate">{{ plan.rate }}</p>
+        </div>
+        <ul class="check-list">
+          {% for item in plan.items %}<li>{{ item }}</li>{% endfor %}
+        </ul>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,23 @@
+{
+  "label": "SKILL",
+  "heading": "スキル",
+  "items": [
+    {
+      "title": "AI活用",
+      "items": ["Claude Code／Codex（AIコーディング）", "ChatGPT／Gemini（業務効率化・プロンプト設計）"]
+    },
+    {
+      "title": "業務改善・チーム運営",
+      "items": ["Backlog／Asanaの導入と運用ルール設計", "タスクの見える化", "進行管理"]
+    },
+    {
+      "title": "コーディング",
+      "items": ["HTML／CSS（SCSS）／JavaScript（jQuery）", "Eleventy", "GitHub"]
+    },
+    {
+      "title": "CMS・EC",
+      "items": ["MakeShop／カラーミーショップ", "WordPress／独自CMS"]
+    }
+  ],
+  "next": "これから伸ばしたい技術：React／TypeScript／Next.js"
+}

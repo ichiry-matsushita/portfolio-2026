@@ -1,0 +1,32 @@
+<section class="section" id="samples" aria-labelledby="samples-heading">
+  <div class="container">
+    {% set sh = { label: samples.label, heading: samples.heading, id: "samples-heading", lead: samples.lead } %}
+    {% include "sections/section-heading.njk" %}
+
+    <div class="grid">
+      {% for sample in samples.items %}
+      <article class="card sample">
+        <div class="sample__image">
+          {% if sample.image %}
+          <img src="{{ sample.image }}" alt="{{ sample.alt }}" width="800" height="500" loading="lazy" decoding="async">
+          {% else %}
+          <span class="sample__placeholder">画像を準備中</span>
+          {% endif %}
+        </div>
+        <div class="sample__body">
+          <h3 class="sample__title"><a href="{{ sample.href }}">{{ sample.title }}</a></h3>
+          <ul class="tag-list" aria-label="使用技術">
+            {% for t in sample.tech %}<li class="tag">{{ t }}</li>{% endfor %}
+          </ul>
+          <p class="sample__hours">制作時間 {{ sample.hours }}時間</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+
+    <aside class="note-box" aria-labelledby="about-heading">
+      <h3 class="note-box__title" id="about-heading">{{ samples.about.heading }}</h3>
+      <p>{{ samples.about.body }}</p>
+    </aside>
+  </div>
+</section>

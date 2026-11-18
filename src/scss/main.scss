@@ -1,0 +1,4 @@
+// 読み込み順：トークン → 土台 → 共通部品 → 各セクション
+@use "base";
+@use "components";
+@use "sections";

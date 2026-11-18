@@ -1,0 +1,22 @@
+{
+  "name": "portfolio-site",
+  "version": "0.1.0",
+  "description": "業務委託案件の応募用ポートフォリオ（1ページ）",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:css": "sass src/scss/main.scss _site/css/main.css --style=compressed --no-source-map",
+    "watch:css": "sass src/scss/main.scss _site/css/main.css --watch",
+    "build:html": "eleventy",
+    "serve:html": "eleventy --serve --port=8090",
+    "build": "run-s build:html build:css",
+    "start": "run-p serve:html watch:css",
+    "images": "node scripts/optimize-images.js"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.8",
+    "npm-run-all2": "^8.0.4",
+    "sass": "^1.108.2",
+    "sharp": "^0.35.5"
+  }
+}

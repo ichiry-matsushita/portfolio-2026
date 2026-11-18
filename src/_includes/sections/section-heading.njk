@@ -1,0 +1,6 @@
+{# 使い方：{% set sh = { label: "CASES", heading: "事例", id: "cases-heading", lead: "..." } %}{% include "sections/section-heading.njk" %} #}
+<div class="section-heading">
+  <p class="eyebrow">{{ sh.label }}</p>
+  <h2 class="section-heading__title" id="{{ sh.id }}">{{ sh.heading }}</h2>
+  {% if sh.lead %}<p class="section-heading__lead">{{ sh.lead }}</p>{% endif %}
+</div>

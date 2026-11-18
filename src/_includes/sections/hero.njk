@@ -1,0 +1,22 @@
+<section class="hero" id="top" aria-labelledby="hero-heading">
+  <div class="container">
+    <p class="eyebrow">{{ hero.label }}</p>
+    <h1 class="hero__heading" id="hero-heading">
+      {%- for line in hero.headingLines %}<span class="hero__line">{{ line }}</span>{% endfor -%}
+    </h1>
+    <p class="hero__lead">{{ hero.lead }}</p>
+    <dl class="hero__stats">
+      {% for stat in hero.stats %}
+      <div class="stat">
+        <dt class="stat__label">{{ stat.label }}</dt>
+        <dd class="stat__value">{{ stat.value }}</dd>
+      </div>
+      {% endfor %}
+    </dl>
+    <div class="button-group">
+      {% for button in hero.buttons %}
+      <a class="button button--{{ button.style }}" href="{{ button.href }}">{{ button.label }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

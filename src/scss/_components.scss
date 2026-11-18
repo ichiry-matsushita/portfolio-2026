@@ -1,0 +1,150 @@
+@use "tokens" as *;
+
+// ---------- セクション ----------
+.section {
+  padding-block: $section-space-sp;
+  @include md { padding-block: $section-space; }
+}
+
+// 小さな英字ラベル
+.eyebrow {
+  color: $color-accent;
+  font-family: $font-label;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+
+  &--on-dark { color: #A9C2F2; }
+}
+
+// セクション見出し
+.section-heading {
+  margin-bottom: 40px;
+
+  &__title {
+    margin-top: 8px;
+    font-size: clamp(24px, 4vw, 32px);
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  &__lead {
+    max-width: 720px;
+    margin-top: 16px;
+    color: $color-text-sub;
+  }
+}
+
+// ---------- ボタン ----------
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: $button-height;
+  padding: 10px 24px;
+  border: 1px solid transparent;
+  border-radius: $radius-button;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+
+  // アクセント色（主なボタン）
+  &--primary {
+    background: $color-accent;
+    color: #FFFFFF;
+    &:hover { background: $color-accent-hover; color: #FFFFFF; }
+  }
+
+  // 白地に線
+  &--secondary {
+    background: $color-surface;
+    border-color: $color-border;
+    color: $color-text;
+    &:hover { border-color: $color-accent; color: $color-accent; }
+  }
+
+  // 濃い背景の上：白地
+  &--white {
+    background: #FFFFFF;
+    color: $color-dark;
+    &:hover { background: $color-accent-soft; color: $color-dark; }
+  }
+
+  // 濃い背景の上：線だけ
+  &--outline-white {
+    border-color: rgba(255, 255, 255, 0.6);
+    color: #FFFFFF;
+    &:hover { border-color: #FFFFFF; background: rgba(255, 255, 255, 0.08); color: #FFFFFF; }
+  }
+}
+
+// 文中のリンク（矢印つき）
+.text-link {
+  font-weight: 700;
+  text-underline-offset: 3px;
+  &::after { content: " →"; }
+}
+
+// ---------- カード ----------
+.card {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-card;
+  padding: 20px;
+  @include md { padding: 32px; }
+}
+
+// 小さな枠（カードの中の区切り）
+.box {
+  background: $color-bg;
+  border-radius: $radius-box;
+  padding: 14px 16px;
+  @include md { padding: 16px 20px; }
+}
+
+// カードを並べるグリッド：スマホでは自動で1列になる
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+// ---------- ラベル・タグ ----------
+// チケット番号（CASE-01 など）
+.ticket-id {
+  display: inline-block;
+  padding: 2px 10px;
+  background: $color-accent-soft;
+  border-radius: 6px;
+  color: $color-accent;
+  font-family: $font-label;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  padding: 2px 10px;
+  border: 1px solid $color-border;
+  border-radius: 999px;
+  color: $color-text-sub;
+  font-size: 13px;
+  line-height: 1.7;
+}
