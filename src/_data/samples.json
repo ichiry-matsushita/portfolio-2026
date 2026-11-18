@@ -7,7 +7,7 @@
       "title": "おうちイタリアン手帖（レシピコラムサイト）",
       "tech": ["Eleventy", "SCSS", "AIでの記事自動作成"],
       "hours": "約1",
-      "href": "https://ichiry-matsushita.github.io/ouchi-italian-techo/how-it-works/",
+      "href": "https://ichiry-matsushita.github.io/ouchi-italian-techo/",
       "image": "/assets/img/sample-ouchi-italian.webp",
       "alt": "おうちイタリアン手帖のトップページ"
     },
