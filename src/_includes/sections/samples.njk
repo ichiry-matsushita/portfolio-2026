@@ -14,7 +14,8 @@
           {% endif %}
         </div>
         <div class="sample__body">
-          <h3 class="sample__title"><a href="{{ sample.href }}">{{ sample.title }}</a></h3>
+          {# URL がまだないとき（[LPのURL] のまま）はリンクにしない #}
+          <h3 class="sample__title">{% if sample.href.startsWith("http") %}<a href="{{ sample.href }}">{{ sample.title }}</a>{% else %}{{ sample.title }}{% endif %}</h3>
           <ul class="tag-list" aria-label="使用技術">
             {% for t in sample.tech %}<li class="tag">{{ t }}</li>{% endfor %}
           </ul>
