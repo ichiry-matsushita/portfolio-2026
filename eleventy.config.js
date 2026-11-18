@@ -7,7 +7,8 @@ export default function (eleventyConfig) {
   // CSS は約9KBと小さいので、別ファイルにせず <style> に埋め込む（表示を待たせないため）
   eleventyConfig.addWatchTarget("src/scss/");
   eleventyConfig.addShortcode("inlineCss", () =>
-    sass.compile("src/scss/main.scss", { style: "compressed" }).css
+    // charset: false … 日本語のコメントがあると先頭に BOM が付き、<style> の最初のルールが無効になるため
+    sass.compile("src/scss/main.scss", { style: "compressed", charset: false }).css
   );
 
   // 公開URL（例：https://<ユーザー名>.github.io/<リポジトリ名>）。OGPは絶対URLが必要なため。
